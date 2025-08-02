@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import regBg from "../assets/bgReg.png";
 import cardTop from "../assets/cardtop.png";
 import badgeLogo from "../assets/badgeLogo.png";
+import "react-phone-input-2/lib/style.css";
+import PhoneInput from "react-phone-input-2";
+
 const initialForm = {
   firstName: "",
   lastName: "",
@@ -259,15 +262,27 @@ const Register = () => {
                       Mobile number <span className="text-red-500">*</span>
                     </label>
                     <div className="flex">
-                      <span className="inline-flex items-center px-2 bg-gray-100 border border-r-0 rounded-l">
-                        🇳🇬 +234
-                      </span>
-                      <input
-                        name="mobile"
+                      <PhoneInput
+                        country={"ng"}
                         value={form.mobile}
-                        onChange={handleChange}
-                        className="w-full border rounded-r px-3 py-2"
-                        required
+                        onChange={(phone) =>
+                          setForm({ ...form, mobile: phone })
+                        }
+                        inputStyle={{
+                          width: "100%",
+                          borderRadius: "0 0.375rem 0.375rem 0",
+                          borderColor: "rgb(229 231 235)",
+                          padding: "0.5rem 3rem",
+                        }}
+                        containerStyle={{
+                          flex: 1,
+                        }}
+                        buttonStyle={{
+                          borderRadius: "0 0.375rem 0.375rem 0",
+                        }}
+                        dropdownStyle={{
+                          borderRadius: "0.375rem",
+                        }}
                       />
                     </div>
                   </div>
