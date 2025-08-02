@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import bodyBg from "../assets/bodyBg.png";
 import { useNavigate } from "react-router-dom";
-
+import gitexCardLogo from "../assets/gitexCardLogo.png";
 const cardsData = [
   {
     id: 1,
@@ -169,8 +169,8 @@ const TicketCard = () => {
   const Notch = ({ side }) => (
     <div
       className={`absolute top-1/2 ${
-        side === "left" ? "-left-2" : "-right-2"
-      } transform -translate-y-1/2 w-7 h-10 bg-white rounded-full border border-gray-200 z-10`}
+        side === "left" ? "-left-4" : "-right-4"
+      } transform -translate-y-1/2 w-10 h-10 bg-white rounded-full border border-gray-200 z-10`}
       style={{ boxShadow: "none" }}
     ></div>
   );
@@ -178,7 +178,7 @@ const TicketCard = () => {
   // Badge
   const Badge = ({ label, color }) => (
     <div
-      className={`absolute top-4 -left-8 px-8 py-1 text-xs font-bold transform -rotate-45 z-20 shadow ${color} text-white`}
+      className={`absolute top-1 -left-9 px-8 py-4 text-xs font-bold transform -rotate-45 z-20 shadow ${color} text-white`}
     >
       {label}
     </div>
@@ -187,7 +187,7 @@ const TicketCard = () => {
   // Main Card (first card)
   const MainCard = (card) => (
     <div
-      className={`relative w-full max-w-s bg-gradient-to-br ${card.color} rounded-2xl shadow-2xl overflow-hidden`}
+      className={`relative w-full max-w-s bg-gradient-to-br ${card.color} rounded-2xl shadow-2xl overflow-hidden `}
     >
       <Notch side="left" />
       <Notch side="right" />
@@ -205,24 +205,23 @@ const TicketCard = () => {
         className="px-6 py-4 gap-12  bg-black/60 backdrop-blur-md flex flex-col  min-h-[220px] h-full"
         style={{ backgroundImage: `url(${bodyBg})`, backgroundSize: "cover" }}
       >
-        <p className="text-white text-sm mb-6 leading-relaxed">
+        <p className="text-white text-sm mt-10 leading-relaxed">
           Visitor Passes provide{" "}
           <span className="text-green-400 font-bold">3 DAYS ACCESS</span> to
           GITEX NIGERIA exhibition and all free conference
         </p>
-        <div className="flex items-center justify-between mb-8">
-          <div className="flex flex-col items-start">
-            <span className="text-white text-3xl font-bold">GITEX</span>
-            <span className="text-gray-400 text-sm italic">Nigeria</span>
-          </div>
-          <div className="flex flex-col items-center">
-            <span className="text-white text-3xl font-bold">Ai</span>
-            <span className="text-gray-400 text-xs">EVERYTHING NIGERIA</span>
+        <div className="flex items-center justify-start px-2 mb-8">
+          <div className="">
+            {/* img display  */}
+            <img
+              src={gitexCardLogo}
+              alt="Gitex Card Logo"
+              className="w-auto h-16 mb-2"
+            />
           </div>
         </div>
-        <div className="w-full h-px bg-gray-700 mb-4"></div>
-        <div className="flex items-center justify-between">
-          <div className="flex items-baseline gap-2">
+        <div className="flex items-end justify-between border-t border-gray-10 mt-10 h-15">
+          <div className="flex items-baseline gap-1">
             <span className="text-red-400 text-lg font-bold">
               {card.currency}
             </span>
@@ -279,7 +278,7 @@ const TicketCard = () => {
   // Standard Card
   const StandardCard = (card) => (
     <div
-      className={`relative w-full max-w-s bg-gradient-to-br ${card.color} rounded-2xl shadow-2xl overflow-hidden`}
+      className={`relative w-full max-w-s bg-gradient-to-br ${card.color} rounded-2xl  shadow-2xl overflow-hidden`}
     >
       {card.isExclusive && <Badge label="EXCLUSIVE" color="bg-green-600" />}
       {card.isBestSeller && <Badge label="BEST SELLER" color="bg-red-600" />}
@@ -304,9 +303,9 @@ const TicketCard = () => {
           <span className="text-green-400 font-bold">3 DAYS ACCESS</span> to
           GITEX NIGERIA exhibition and all free conference
         </p>
-        <div className="space-y-3 mb-8">
+        <div className="space-y-3 mb-8 ">
           {card.features.map((feature, idx) => (
-            <div key={idx} className="flex items-center gap-3">
+            <div key={idx} className="flex items-center gap-3 inset-0 bg-white/5 backdrop-blur-none px-2 rounded-2xl py-2">
               <span className="w-5 h-5 flex items-center justify-center bg-green-500 rounded-full">
                 <svg
                   className="w-3 h-3 text-white"
@@ -326,7 +325,7 @@ const TicketCard = () => {
             </div>
           ))}
         </div>
-        <div className="flex items-center justify-between mt-auto">
+        <div className="flex items-center justify-between mt-auto border-t border-gray-700 pt-3">
           <div className="flex items-baseline gap-2">
             <span className="text-white text-2xl font-bold">
               {card.price === 0 ? "FREE" : `${card.currency} ${card.price}`}

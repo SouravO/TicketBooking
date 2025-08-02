@@ -144,12 +144,18 @@ const Register = () => {
           <div className="w-full max-w-6xl bg-white/90 rounded-2xl shadow-lg border-2 border-green-200 p-0 md:p-6 flex flex-col md:flex-row gap-0 md:gap-6">
             {/* Left: Form */}
             <form className="flex-1 p-6" onSubmit={handleSubmit}>
-              <div className="bg-green-700 text-white rounded-t-lg px-6 py-3 flex items-center justify-between space-x-3">
+              <div
+                className="rounded-t-lg px-6 py-3 flex items-center justify-between space-x-3 bg-gradient-to-r text-white"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(90deg, #299D3F 0%, #123F22 100%)",
+                }}
+              >
                 <span className="font-bold text-lg">
                   Registration for information 1
                 </span>
-                <span className="bg-transparent border-1   px-4 py-1 rounded font-semibold text-xs text-white">
-                  PREMIUM TICKET - FREEIncl. 19% VAT
+                <span className="bg-white/10 border border-white/40 text-white px-4 py-1 rounded-md font-semibold text-xs">
+                  PREMIUM TICKET - FREE Incl. 19% VAT
                 </span>
               </div>
               <div className="bg-white rounded-b-lg px-6 py-6 border border-t-0 border-green-200 text-black">
@@ -320,17 +326,19 @@ const Register = () => {
                     </select>
                   </div>
                 </div>
-                <div className="mb-4">
-                  <label className="block text-gray-700 text-sm font-semibold mb-1">
-                    What products & services are you interested in?{" "}
-                    <span className="text-red-500">*</span>
-                  </label>
-                  <button
-                    type="button"
-                    className="bg-red-900 text-white px-4 py-1 rounded font-bold text-xs mb-2 ml-2"
-                  >
-                    SELECT SOLUTIONS/PRODUCTS
-                  </button>
+                <div className="mb-4 mt-10">
+                  <div className="flex">
+                    <label className="block text-gray-700 text-sm font-semibold mb-1">
+                      What products & services are you interested in?{" "}
+                      <span className="text-red-500">*</span>
+                    </label>
+                    <button
+                      type="button"
+                      className="bg-red-900 text-white px-4 py-1 rounded font-bold text-xs mb-2 ml-2"
+                    >
+                      SELECT SOLUTIONS/PRODUCTS
+                    </button>
+                  </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-2">
                     {workshops.map((w, i) => (
                       <label
