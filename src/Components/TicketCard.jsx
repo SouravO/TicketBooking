@@ -220,8 +220,8 @@ const TicketCard = () => {
             />
           </div>
         </div>
-        <div className="flex items-end justify-between border-t border-gray-10 mt-10 h-15">
-          <div className="flex items-baseline gap-1">
+        <div className="flex items-end justify-between border-t border-gray-10 mt-20 h-15">
+          <div className="flex items-baseline gap-1 ">
             <span className="text-red-400 text-lg font-bold">
               {card.currency}
             </span>
@@ -272,7 +272,7 @@ const TicketCard = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div>  
   );
 
   // Standard Card
